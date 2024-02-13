@@ -38,4 +38,15 @@ export class GetUpTimeController {
       next(error);
     }
   };
+
+  public updateCheckedField = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { userid, get_up_time } = req.body;
+      const updateUserData = await this.getUpTimeService.updateCheckedField(userid, get_up_time);
+
+      res.status(200).json({ data: updateUserData, message: 'updated' });
+    } catch (error) {
+      next(error);
+    }
+  };
 }

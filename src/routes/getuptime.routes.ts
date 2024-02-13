@@ -15,5 +15,6 @@ export class GetUpRoute implements Routes {
     this.router.get(`${this.path}/:userID`, this.getUp.getUsers);
     this.router.post(`${this.path}/create`, this.getUp.createGetUpTime);
     this.router.put(`${this.path}/update`, this.getUp.updateGetUpTime);
+    this.router.put(`${this.path}/updateChecked`, this.getUp.updateCheckedField);
   }
 }

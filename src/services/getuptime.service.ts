@@ -44,4 +44,21 @@ export class GetUpTimeService {
 
     return rows[0];
   }
+
+  public async updateCheckedField(userid: number, get_up_time: any) {
+    try {
+      const result = await pg.query(
+        `
+            UPDATE fact_get_up
+            SET get_up_time = $2 
+            WHERE userid = $1
+        `,
+        [userid, get_up_time],
+      );
+
+      console.log(result);
+    } catch (error) {
+      console.error('Error updating Checked field:', error);
+    }
+  }
 }

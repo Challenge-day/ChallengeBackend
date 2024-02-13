@@ -3,6 +3,12 @@ import { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_PORT, POSTGRE
 
 export const client = new Client({
   connectionString: `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=require`,
+  connectionTimeoutMillis: 0,
+  database: POSTGRES_DB,
+  host: POSTGRES_HOST,
+  idle_in_transaction_session_timeout: 0,
+  password: POSTGRES_PASSWORD,
+  port: Number(POSTGRES_PORT),
 });
 
 client
